@@ -1,57 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Маршрутизация VUE</title>
-        <style>
-            
-        </style>
+        <meta charset="utf-8">
+        <title>Формы</title>
+        <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-       
-        <script src="https://unpkg.com/vue@next"></script>
-        <script src="https://unpkg.com/vue-router@next"></script>
-        <script>
-            const state={
-                currentPage: 'Products'
-                products: [],
-                categoties: [],
-                brands: []
-            }
-            computed: {
-                brands(){
-                    return this.$store.state.brands;
-                }
-            }
-            computed: {
-                amountBrands(){
-                    return this.$store.state.brands.length;
-                }
-            }
-            computed: {
-                amountBrands(){
-                    return this.$store.getters.getAmountBrands;
-                }
-            }
-            const mutations={
-                SET_BRANDS(state, brands){
-                    state.brands=brands;
-                }
-            }
-            context.commit('SET_BRANDS', brands);
-            const actions={
-                getBrands(context){
-                    axios
-                        .get('/api/v1/brands')
-                        .then(response=>{
-                            context.commit('SET_BRANDS', response.data);
-                        })
-                }
-            }
-            created (){
-                this.$store.dispatch('getBrands')
-            }
+        <h1>Название сайта</h1>
+        <nav>
+            <h2>Навигация по сайту</h2>
+        </nav>
+        <article>
+            <h2>Название статьи</h2>
+            <section>
+                <h3>1 раздел статьи</h3>
+                <section><h4>1 подраздел 1 раздела</h4></section>
+            </section>
+            <section>
+                <h3>2 раздел статьи</h3>
+                <section><h4>1 подраздел 2 раздела</h4></section>
+                <section><h4>2 подраздел 2 раздела</h4></section>
+            </section>
+            <section>
+                <h3> 3 раздел статьи</h3>
+            </section>
+            <section><h3>комментарии</h3></section>
 
-        </script>
+        </article>
+    	<aside>
+            <h2>Дополнительные разделы</h2>
+            <section>
+                <h3>Поиск</h3>
+            </section>  
+            <section>
+                <h3>облако тегов</h3>
+            </section> 
+            <section>
+                <h3>Комментарии</h3>
+            </section>
+            <section>
+                <h3>Голосование</h3>
+            </section>
+            <section>
+                <h3>О блоге</h3>
+            </section>
+        </aside>
+        
     </body>
 </html>
